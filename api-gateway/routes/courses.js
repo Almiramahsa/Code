@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const { APP_NAME } = process.env;
-/* GET users listing. */
+
+/* GET home page. */
 router.get('/', function (req, res, next) {
-  res.send('users');
+  res.send('courses');
 });
 
 module.exports = router;
