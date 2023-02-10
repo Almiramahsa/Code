@@ -15,12 +15,12 @@ module.export = (Sequelize, DataTypes) => {
         alowNull: false,
       },
       creatAt: {
-        field: 'created_At',
+        field: 'created_at',
         type: DataTypes.DATE,
         allowNull: false,
       },
       updateAt: {
-        field: 'update_At',
+        field: 'update_at',
         type: DataTypes.DATE,
         allowNull: false,
       },
@@ -29,4 +29,5 @@ module.export = (Sequelize, DataTypes) => {
       tableName: 'media',
     }
   );
+  return Media;
 };

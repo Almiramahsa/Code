@@ -3,7 +3,7 @@ var router = express.Router();
 const { APP_NAME } = process.env;
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.send(APP_NAME);
+  res.send('courses');
 });
 
 module.exports = router;
