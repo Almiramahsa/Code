@@ -1,26 +1,24 @@
-const { sequelize } = require('.');
-
-module.export = (Sequelize, DataTypes) => {
-  const Media = sequelize.define(
+module.exports = (sequelize, DataTypes, sequelizeDb) => {
+  const Media = sequelizeDb.define(
     'Media',
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: dalse,
+        allowNull: false,
       },
       image: {
         type: DataTypes.STRING,
-        alowNull: false,
+        allowNull: false,
       },
-      creatAt: {
+      createdAt: {
         field: 'created_at',
         type: DataTypes.DATE,
         allowNull: false,
       },
-      updateAt: {
-        field: 'update_at',
+      updatedAt: {
+        field: 'updated_at',
         type: DataTypes.DATE,
         allowNull: false,
       },
