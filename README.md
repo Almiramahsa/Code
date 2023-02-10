@@ -1,6 +1,5 @@
 # Code an Online Course Platform
 
-# About Project 
 Code is the perfect solution for those seeking a comprehensive and cost-effective online learning experience. With a virtual mentor at your fingertips, you can master the art of coding and achieve your career goals with ease. Take advantage of our exclusive deals and start your coding journey today!
 
 # Link Notion : 
