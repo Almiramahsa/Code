@@ -25,5 +25,6 @@ app.use('/users', usersRouter);
 app.use('/courses', coursesRouter);
 app.use('/media', mediaRouter);
 app.use('/orders', ordersRouter);
+app.use('/payments', paymentsRouter);
 
 module.exports = app;

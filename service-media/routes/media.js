@@ -5,7 +5,7 @@ const base64Img = require('base64-img');
 
 const { Media } = require('../models');
 
-router.post('/', async (req, res) => {
+router.post('/media', async (req, res) => {
   const image = req.body.image;
 
   if (!isBase64(image, { mimeRequired: true })) {
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ status: 'error', message: err.message });
     }
     // 'public.images/123.png'
-    const filename = filepath.split('/').pop();
+    const filename = filepath.split('\\').pop().split('/').pop();
     const media = await Media.create({ image: `images/${filename}` });
     return res.json({
       status: 'success',
