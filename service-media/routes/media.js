@@ -3,9 +3,10 @@ const router = express.Router();
 const isBase64 = require('is-base64');
 const base64Img = require('base64-img');
 const { v4: uuidv4 } = require('uuid');
+const fs = require('fs');
 const { Media } = require('../models');
 
-//GET Image LIst
+//GET Image List
 router.get('/', async (req, res) => {
   const media = await Media.findAll({
     attributes: ['id', 'image'],
@@ -21,6 +22,7 @@ router.get('/', async (req, res) => {
   });
 });
 
+//POST Image
 router.post('/', async (req, res) => {
   const image = req.body.image;
 
@@ -43,6 +45,37 @@ router.post('/', async (req, res) => {
       },
     });
   });
+});
+
+//DELETE Image
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+
+  const media = await Media.findByPk(id);
+
+  if (fs.existsSync(`./public/${media.image}`)) {
+    fs.unlink(`./public/${media.image}`, async (err) => {
+      if (err) {
+        return res.status(400).json({
+          status: 'error',
+          message: err.message,
+        });
+      }
+      await media.destroy();
+
+      return res.json({
+        status: 'success',
+        message: 'image deleted',
+      });
+    });
+  } else {
+    await media.destroy();
+
+    return res.json({
+      status: 'success',
+      message: 'media not found in directory but deleted from database',
+    });
+  }
 });
 
 module.exports = router;
