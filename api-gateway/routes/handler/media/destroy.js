@@ -5,17 +5,15 @@ const api = apiAdapter(URL_SERVICE_MEDIA);
 
 module.exports = async (req, res) => {
   try {
-    const media = await api.get('/media');
+    const id = req.params.id;
+    const media = await api.delete(`/media/${id}`);
     return res.json(media.data);
   } catch (error) {
-    if (error.code === 'ECONNREFUSED') {
-      return res.status(500).json({ status: 'error', message: 'service unavailable' });
-    }
     if (error.response) {
       const { status, data } = error.response;
       return res.status(status).json(data);
     } else {
-      return res.status(500).json({ message: 'Internal Server Error' });
+      return res.status(500).json({ status: 'error', message: 'service unavailable' });
     }
   }
 };
