@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
   return res.json({
     status: 'success',
     data: {
-      id: createdUser.id,
+      id: createUser.id,
     },
   });
 };
