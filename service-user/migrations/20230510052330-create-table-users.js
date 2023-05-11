@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      proffesion: {
+      profession: {
         type: Sequelize.STRING,
         allowNull: true,
       },
