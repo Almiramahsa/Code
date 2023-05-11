@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('users', [
-      { name: 'almira', profession: 'admin code', role: 'admin', email: 'almiramahsa9@gmail.com', password: await bcrypt.hash('rahasia123', 10), created_at: new Date(), updated_at: new Date() },
-      { name: 'farid', profession: 'backend engineer', role: 'student', email: 'farid@gmail.com', password: await bcrypt.hash('kepobeut', 10), created_at: new Date(), updated_at: new Date() },
+      { name: 'almira', proffesion: 'admin code', role: 'admin', email: 'almiramahsa9@gmail.com', password: await bcrypt.hash('rahasia123', 10), created_at: new Date(), updated_at: new Date() },
+      { name: 'farid', proffesion: 'backend engineer', role: 'student', email: 'farid@gmail.com', password: await bcrypt.hash('kepobeut', 10), created_at: new Date(), updated_at: new Date() },
     ]);
   },
 
